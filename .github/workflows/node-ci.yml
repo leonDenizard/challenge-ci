@@ -23,6 +23,9 @@ jobs:
         with:
           node-version: 18 #Versão do node.js a ser usada
 
+      - name: Iniciar projeto em node
+        run: npm init -y
+
       - name: Instalar dependências
         run: npm install
 
