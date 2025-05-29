@@ -5,7 +5,7 @@ name: Node.js CI
 on:
   push:
     branches:
-      - main
+      - ci-workflow-test
 
 # Lista de jobs a serem executadas
 
