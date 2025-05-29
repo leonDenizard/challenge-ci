@@ -1,0 +1,32 @@
+name: Node.js CI
+
+# Evento que dispara o Workflow
+
+on:
+  push:
+    branches:
+      - main
+
+# Lista de jobs a serem executadas
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+   
+    # Passos do job
+    steps:
+      - name: Checkout do repositório
+        uses: actions/checkout@v3 #clona o repositório para vm
+
+      - name: Setup do Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18 #Versão do node.js a ser usada
+
+      - name: Instalar dependências
+        run: npm install
+
+      - name: Rodar testes
+        run: npm test
+
+    
