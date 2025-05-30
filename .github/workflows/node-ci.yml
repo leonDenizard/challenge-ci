@@ -28,8 +28,8 @@ jobs:
         with:
           node-version: ${{matrix.node-version}} #Versão do node.js a ser usada
 
-      - name: Iniciar projeto em node
-        run: npm ci
+      - name: Instalar dependências
+        run: npm install
 
       - name: Rodar testes
         run: npm test
