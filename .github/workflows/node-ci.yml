@@ -11,7 +11,12 @@ on:
 
 jobs:
   build:
+    name: Build e teste node.js
     runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x, 18.x, 20.x]
    
     # Passos do job
     steps:
@@ -21,13 +26,10 @@ jobs:
       - name: Setup do Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: 18 #Versão do node.js a ser usada
+          node-version: ${{matrix.node-version}} #Versão do node.js a ser usada
 
       - name: Iniciar projeto em node
-        run: npm init -y
-
-      - name: Instalar dependências
-        run: npm install
+        run: npm ci
 
       - name: Rodar testes
         run: npm test
